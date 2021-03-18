@@ -24,17 +24,17 @@ import dev.chrisbanes.accompanist.insets.ProvideWindowInsets
 
 class MainActivity : AppCompatActivity() {
 
-  override fun onCreate(savedInstanceState: Bundle?) {
-    super.onCreate(savedInstanceState)
-    // Render under the status and navigation bars.
-    WindowCompat.setDecorFitsSystemWindows(window, false)
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        // Render under the status and navigation bars.
+        WindowCompat.setDecorFitsSystemWindows(window, false)
 
-    setContent {
-      ProvideWindowInsets {
-        WeatherChallengeTheme {
-          HomeScreen()
+        setContent {
+            ProvideWindowInsets {
+                WeatherChallengeTheme {
+                    HomeScreen()
+                }
+            }
         }
-      }
     }
-  }
 }

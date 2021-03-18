@@ -13,7 +13,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 package codes.chrishorner.weatherchallenge.style
 
 import androidx.compose.foundation.isSystemInDarkTheme
@@ -22,8 +21,8 @@ import androidx.compose.runtime.Composable
 
 @Composable
 fun WeatherChallengeTheme(darkTheme: Boolean = isSystemInDarkTheme(), content: @Composable () -> Unit) {
-  MaterialTheme(
-    colors = if (darkTheme) DarkColors else LightColors,
-    content = content
-  )
+    MaterialTheme(
+        colors = if (darkTheme) DarkColors else LightColors,
+        content = content
+    )
 }

@@ -15,6 +15,6 @@
   -->
 
 <resources>
-  <color name="statusBar">@color/scrimDark</color>
-  <color name="navigationBar">@color/scrimDark</color>
+    <color name="statusBar">@color/scrimDark</color>
+    <color name="navigationBar">@color/scrimDark</color>
 </resources>

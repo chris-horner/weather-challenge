@@ -27,24 +27,24 @@ private val LightOrange = Color(0xfff2a363)
 private val DarkGrey = Color(0xff121212)
 
 val LightColors = lightColors(
-  primary = Aqua,
-  primaryVariant = DarkAqua,
-  onPrimary = Color.Black,
-  secondary = Orange,
-  secondaryVariant = LightOrange,
-  onSecondary = Color.Black,
-  surface = Color.White,
-  onSurface = Color.Black,
-  background = VeryLightAqua,
-  onBackground = Color.Black
+    primary = Aqua,
+    primaryVariant = DarkAqua,
+    onPrimary = Color.Black,
+    secondary = Orange,
+    secondaryVariant = LightOrange,
+    onSecondary = Color.Black,
+    surface = Color.White,
+    onSurface = Color.Black,
+    background = VeryLightAqua,
+    onBackground = Color.Black
 )
 
 val DarkColors = darkColors(
-  primary = Aqua,
-  primaryVariant = DarkAqua,
-  onPrimary = Color.Black,
-  secondary = LightOrange,
-  onSecondary = Color.Black,
-  surface = DarkGrey,
-  onSurface = Color.White,
+    primary = Aqua,
+    primaryVariant = DarkAqua,
+    onPrimary = Color.Black,
+    secondary = LightOrange,
+    onSecondary = Color.Black,
+    surface = DarkGrey,
+    onSurface = Color.White,
 )

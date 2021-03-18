@@ -13,7 +13,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 package codes.chrishorner.weatherchallenge
 
 import androidx.compose.foundation.layout.RowScope
@@ -37,27 +36,27 @@ import dev.chrisbanes.accompanist.insets.statusBarsPadding
  */
 @Composable
 fun InsetAwareTopAppBar(
-  title: @Composable () -> Unit,
-  modifier: Modifier = Modifier,
-  navigationIcon: @Composable (() -> Unit)? = null,
-  actions: @Composable RowScope.() -> Unit = {},
-  backgroundColor: Color = MaterialTheme.colors.primarySurface,
-  contentColor: Color = contentColorFor(backgroundColor),
-  elevation: Dp = 4.dp
+    title: @Composable () -> Unit,
+    modifier: Modifier = Modifier,
+    navigationIcon: @Composable (() -> Unit)? = null,
+    actions: @Composable RowScope.() -> Unit = {},
+    backgroundColor: Color = MaterialTheme.colors.primarySurface,
+    contentColor: Color = contentColorFor(backgroundColor),
+    elevation: Dp = 4.dp
 ) {
-  Surface(
-    color = backgroundColor,
-    elevation = elevation,
-    modifier = modifier
-  ) {
-    TopAppBar(
-      title = title,
-      navigationIcon = navigationIcon,
-      actions = actions,
-      backgroundColor = Color.Transparent,
-      contentColor = contentColor,
-      elevation = 0.dp,
-      modifier = Modifier.statusBarsPadding()
-    )
-  }
+    Surface(
+        color = backgroundColor,
+        elevation = elevation,
+        modifier = modifier
+    ) {
+        TopAppBar(
+            title = title,
+            navigationIcon = navigationIcon,
+            actions = actions,
+            backgroundColor = Color.Transparent,
+            contentColor = contentColor,
+            elevation = 0.dp,
+            modifier = Modifier.statusBarsPadding()
+        )
+    }
 }

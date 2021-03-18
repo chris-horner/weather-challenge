@@ -1,73 +1,73 @@
 plugins {
-  id 'com.android.application'
-  id 'kotlin-android'
+    id 'com.android.application'
+    id 'kotlin-android'
 }
 
 android {
-  compileSdkVersion versions.compile_sdk
+    compileSdkVersion versions.compile_sdk
 
-  defaultConfig {
-    applicationId 'codes.chrishorner.weatherchallenge'
-    minSdkVersion versions.min_sdk
-    targetSdkVersion versions.compile_sdk
-    versionCode 1
-    versionName '1.0'
-  }
-
-  signingConfigs {
-    // We use a bundled debug keystore, to allow debug builds from CI to be upgradable
-    debug {
-      storeFile rootProject.file('debug.keystore')
-      storePassword 'android'
-      keyAlias 'androiddebugkey'
-      keyPassword 'android'
+    defaultConfig {
+        applicationId 'codes.chrishorner.weatherchallenge'
+        minSdkVersion versions.min_sdk
+        targetSdkVersion versions.compile_sdk
+        versionCode 1
+        versionName '1.0'
     }
-  }
 
-  buildTypes {
-    debug {
-      signingConfig signingConfigs.debug
+    signingConfigs {
+        // We use a bundled debug keystore, to allow debug builds from CI to be upgradable
+        debug {
+            storeFile rootProject.file('debug.keystore')
+            storePassword 'android'
+            keyAlias 'androiddebugkey'
+            keyPassword 'android'
+        }
     }
-    release {
-      minifyEnabled false
-      proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+
+    buildTypes {
+        debug {
+            signingConfig signingConfigs.debug
+        }
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
     }
-  }
 
-  kotlinOptions {
-    jvmTarget = JavaVersion.VERSION_1_8
-  }
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8
+    }
 
-  buildFeatures {
-    compose true
+    buildFeatures {
+        compose true
 
-    // Disable unused AGP features
-    buildConfig false
-    aidl false
-    renderScript false
-    resValues false
-    shaders false
-  }
+        // Disable unused AGP features
+        buildConfig false
+        aidl false
+        renderScript false
+        resValues false
+        shaders false
+    }
 
-  composeOptions {
-    kotlinCompilerExtensionVersion versions.compose
-  }
+    composeOptions {
+        kotlinCompilerExtensionVersion versions.compose
+    }
 
-  packagingOptions {
-    // Multiple dependency bring these files in. Exclude them to enable
-    // our test APK to build (has no effect on our AARs)
-    excludes += "/META-INF/AL2.0"
-    excludes += "/META-INF/LGPL2.1"
-  }
+    packagingOptions {
+        // Multiple dependency bring these files in. Exclude them to enable
+        // our test APK to build (has no effect on our AARs)
+        excludes += "/META-INF/AL2.0"
+        excludes += "/META-INF/LGPL2.1"
+    }
 }
 
 dependencies {
-  implementation "androidx.core:core-ktx:${versions.androidx_core}"
-  implementation "androidx.appcompat:appcompat:${versions.appcompat}"
-  implementation "androidx.activity:activity-compose:${versions.androidx_activity}"
-  implementation "androidx.compose.ui:ui:${versions.compose}"
-  implementation "androidx.compose.material:material:${versions.compose}"
-  implementation "androidx.compose.material:material-icons-extended:${versions.compose}"
-  implementation "dev.chrisbanes.accompanist:accompanist-insets:${versions.accompanist}"
-  implementation "androidx.compose.ui:ui-tooling:${versions.compose}"
+    implementation "androidx.core:core-ktx:${versions.androidx_core}"
+    implementation "androidx.appcompat:appcompat:${versions.appcompat}"
+    implementation "androidx.activity:activity-compose:${versions.androidx_activity}"
+    implementation "androidx.compose.ui:ui:${versions.compose}"
+    implementation "androidx.compose.material:material:${versions.compose}"
+    implementation "androidx.compose.material:material-icons-extended:${versions.compose}"
+    implementation "dev.chrisbanes.accompanist:accompanist-insets:${versions.accompanist}"
+    implementation "androidx.compose.ui:ui-tooling:${versions.compose}"
 }

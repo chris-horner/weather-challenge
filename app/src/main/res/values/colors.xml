@@ -15,6 +15,6 @@
   -->
 
 <resources>
-  <color name="scrimLight">@android:color/transparent</color>
-  <color name="scrimDark">#cc000000</color>
+    <color name="scrimLight">@android:color/transparent</color>
+    <color name="scrimDark">#cc000000</color>
 </resources>

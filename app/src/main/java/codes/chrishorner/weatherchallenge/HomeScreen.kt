@@ -13,7 +13,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 package codes.chrishorner.weatherchallenge
 
 import androidx.compose.foundation.layout.fillMaxSize
@@ -26,26 +25,25 @@ import androidx.compose.ui.Modifier
 
 @Composable
 fun HomeScreen() {
-  HomeUi()
+    HomeUi()
 }
 
 @Composable
 private fun HomeUi() {
-  Surface(color = MaterialTheme.colors.background, modifier = Modifier.fillMaxSize()) {
-    Scaffold(
-      topBar = {
-        InsetAwareTopAppBar(
-          title = {
-            Text(
-              text = "Hello world",
-              style = MaterialTheme.typography.h6,
-            )
-          },
-          backgroundColor = MaterialTheme.colors.background,
-        )
-      }
-    ) {
-
+    Surface(color = MaterialTheme.colors.background, modifier = Modifier.fillMaxSize()) {
+        Scaffold(
+            topBar = {
+                InsetAwareTopAppBar(
+                    title = {
+                        Text(
+                            text = "Hello world",
+                            style = MaterialTheme.typography.h6,
+                        )
+                    },
+                    backgroundColor = MaterialTheme.colors.background,
+                )
+            }
+        ) {
+        }
     }
-  }
 }

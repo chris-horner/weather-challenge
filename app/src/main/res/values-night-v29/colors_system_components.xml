@@ -15,5 +15,5 @@
   -->
 
 <resources>
-  <color name="navigationBar">@android:color/transparent</color>
+    <color name="navigationBar">@android:color/transparent</color>
 </resources>
