@@ -16,6 +16,7 @@
 package codes.chrishorner.weatherchallenge
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -52,13 +53,24 @@ private fun HomeUi() {
                 )
             }
         ) {
-            Image(
-                painter = painterResource(R.drawable.tree),
-                contentDescription = stringResource(R.string.treeDesc),
-                alignment = Alignment.CenterStart,
-                contentScale = ContentScale.Fit,
-                modifier = Modifier.fillMaxWidth().height(280.dp)
-            )
+            Box {
+
+                Image(
+                    painter = painterResource(R.drawable.tree),
+                    contentDescription = stringResource(R.string.treeDesc),
+                    alignment = Alignment.CenterStart,
+                    contentScale = ContentScale.Fit,
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(280.dp)
+                )
+
+                FloatingLeaves(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(280.dp)
+                )
+            }
         }
     }
 }

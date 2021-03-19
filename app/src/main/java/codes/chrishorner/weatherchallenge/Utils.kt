@@ -22,6 +22,10 @@ import androidx.compose.material.TopAppBar
 import androidx.compose.material.contentColorFor
 import androidx.compose.material.primarySurface
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.State
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.withFrameMillis
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.Dp
@@ -59,4 +63,24 @@ fun InsetAwareTopAppBar(
             modifier = Modifier.statusBarsPadding()
         )
     }
+}
+
+/**
+ * Uses [withFrameMillis] to update a state every frame.
+ */
+@Composable
+fun frameTimeMillis(): State<Long> {
+    val millisState = mutableStateOf(0L)
+
+    LaunchedEffect(Unit) {
+        val startTime = withFrameMillis { it }
+
+        while (true) {
+            withFrameMillis { frameTime ->
+                millisState.value = frameTime - startTime
+            }
+        }
+    }
+
+    return millisState
 }
