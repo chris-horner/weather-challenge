@@ -10,4 +10,5 @@
       the License.
       -->
     <string name="appName">AndroidDevChallenge</string>
+    <string name="treeDesc">Image of a tree.</string>
 </resources>
