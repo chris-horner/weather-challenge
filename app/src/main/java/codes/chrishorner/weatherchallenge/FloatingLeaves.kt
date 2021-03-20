@@ -8,6 +8,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.draw.rotate
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.Dp
@@ -16,8 +17,8 @@ import kotlin.math.sin
 import kotlin.random.Random
 
 private const val LEAF_COUNT = 100
-private const val MIN_SPAWN_THRESHOLD_MS = 200L
-private const val SPAWN_VARIANCE = 300L
+private const val MIN_SPAWN_THRESHOLD_MS = 100L
+private const val SPAWN_VARIANCE = 200L
 
 @Composable
 fun FloatingLeaves(modifier: Modifier = Modifier) {
@@ -37,6 +38,7 @@ fun FloatingLeaves(modifier: Modifier = Modifier) {
                     .size(width = leaf.width, height = leaf.height)
                     .offset(leaf.x, leaf.y)
                     .rotate(leaf.rotation)
+                    .alpha(leaf.alpha)
             )
         }
     }
@@ -63,7 +65,8 @@ private data class Leaf(
     var rotation: Float = 0f,
     var rotationSpeed: Float = 0f,
     var period: Float = 0f,
-    var amplitude: Float = 0f
+    var amplitude: Float = 0f,
+    var alpha: Float = 0f
 )
 
 private class LeavesSimulation {
@@ -99,10 +102,12 @@ private class LeavesSimulation {
                 rotationSpeed = random(0.5f, 180f) * if (Random.nextBoolean()) 1 else -1
                 period = random(0.05f, 0.6f)
                 amplitude = random(0.003f, 0.05f)
+                alpha = 0f
             }
 
             activeLeaves.add(leaves)
         }
+
         val deltaSeconds = (time - lastUpdateTime) / 1000f
 
         for (index in activeLeaves.indices.reversed()) {
@@ -110,6 +115,7 @@ private class LeavesSimulation {
                 rotation += rotationSpeed * deltaSeconds
                 x += xSpeed * deltaSeconds
                 y += (period * sin(amplitude * x.value) + (ySpeed.value * deltaSeconds)).dp
+                alpha += (0.9f * deltaSeconds).coerceAtMost(1f)
 
                 if (x > worldWidth) {
                     activeLeaves.remove(this)
