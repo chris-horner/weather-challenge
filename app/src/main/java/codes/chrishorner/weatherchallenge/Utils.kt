@@ -31,6 +31,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import dev.chrisbanes.accompanist.insets.statusBarsPadding
+import kotlin.random.Random
 
 /**
  * A wrapper around [TopAppBar] which uses [Modifier.statusBarsPadding] to shift the app bar's
@@ -83,4 +84,11 @@ fun frameTimeMillis(): State<Long> {
     }
 
     return millisState
+}
+
+/**
+ * A random number between start (inclusive) and end (exclusive).
+ */
+fun random(start: Float, end: Float): Float {
+    return start + Random.nextFloat() * (end - start)
 }
