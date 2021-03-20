@@ -17,9 +17,14 @@ package codes.chrishorner.weatherchallenge
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Scaffold
 import androidx.compose.material.Surface
@@ -70,6 +75,15 @@ private fun HomeUi() {
                         .fillMaxWidth()
                         .height(280.dp)
                 )
+
+
+            }
+
+            Column(modifier = Modifier.verticalScroll(rememberScrollState())) {
+                Spacer(modifier = Modifier.height(196.dp))
+                Box(modifier = Modifier.padding(16.dp)) {
+                    ConditionsCard(modifier = Modifier.fillMaxWidth())
+                }
             }
         }
     }

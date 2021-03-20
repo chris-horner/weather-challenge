@@ -11,4 +11,6 @@
       -->
     <string name="appName">AndroidDevChallenge</string>
     <string name="treeDesc">Image of a tree.</string>
+    <string name="currentIconDesc">Icon for current weather conditions.</string>
+    <string name="feelsLike">Feels like</string>
 </resources>
