@@ -23,6 +23,7 @@ import androidx.compose.runtime.Composable
 fun WeatherChallengeTheme(darkTheme: Boolean = isSystemInDarkTheme(), content: @Composable () -> Unit) {
     MaterialTheme(
         colors = if (darkTheme) DarkColors else LightColors,
+        typography = WeatherChallengeTypography,
         content = content
     )
 }
