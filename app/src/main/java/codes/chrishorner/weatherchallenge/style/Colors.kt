@@ -15,8 +15,10 @@
  */
 package codes.chrishorner.weatherchallenge.style
 
+import androidx.compose.material.Colors
 import androidx.compose.material.darkColors
 import androidx.compose.material.lightColors
+import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 
 private val Aqua = Color(0xff34d9b8)
@@ -25,6 +27,11 @@ private val VeryLightAqua = Color(0xffedfdf8)
 private val Orange = Color(0xffe47633)
 private val LightOrange = Color(0xfff2a363)
 private val DarkGrey = Color(0xff121212)
+
+private val DaySkyTop = Color(0xffE0F3FA)
+private val DaySkyBottom = Color(0xffc2f9ff)
+private val NightSkyTop = Color(0xFFFF00FF)
+private val NightSkyBottom = Color(0xFFFF00FF)
 
 val LightColors = lightColors(
     primary = Aqua,
@@ -35,7 +42,6 @@ val LightColors = lightColors(
     onSecondary = Color.Black,
     surface = Color.White,
     onSurface = Color.Black,
-    background = VeryLightAqua,
     onBackground = Color.Black
 )
 
@@ -48,3 +54,9 @@ val DarkColors = darkColors(
     surface = DarkGrey,
     onSurface = Color.White,
 )
+
+@Composable
+fun Colors.skyTop(): Color = if (isLight) DaySkyTop else NightSkyTop
+
+@Composable
+fun Colors.skyBottom(): Color = if (isLight) DaySkyBottom else NightSkyBottom

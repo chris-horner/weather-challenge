@@ -17,6 +17,7 @@ package codes.chrishorner.weatherchallenge
 
 import androidx.compose.animation.core.animateDpAsState
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
@@ -27,12 +28,15 @@ import androidx.compose.material.icons.rounded.ArrowDropDown
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.DpOffset
 import androidx.compose.ui.unit.dp
+import codes.chrishorner.weatherchallenge.style.skyBottom
+import codes.chrishorner.weatherchallenge.style.skyTop
 import dev.chrisbanes.accompanist.insets.navigationBarsPadding
 
 @Composable
@@ -54,9 +58,16 @@ private fun HomeUi() {
                 modifier = Modifier
                     .verticalScroll(scrollState)
                     .navigationBarsPadding()
-                    .padding(vertical = 8.dp),
+                    .padding(bottom = 8.dp),
             ) {
-                Box {
+                Box(
+                    modifier = Modifier.background(
+                        Brush.verticalGradient(
+                            0f to MaterialTheme.colors.skyTop(),
+                            1f to MaterialTheme.colors.skyBottom()
+                        )
+                    )
+                ) {
                     Image(
                         painter = painterResource(R.drawable.tree),
                         contentDescription = stringResource(R.string.treeDesc),
@@ -72,8 +83,13 @@ private fun HomeUi() {
                             .fillMaxWidth()
                             .height(256.dp)
                     )
+
+                    CurrentTemperature(
+                        modifier = Modifier
+                            .align(Alignment.TopEnd)
+                            .padding(horizontal = 16.dp)
+                    )
                 }
-                Conditions(modifier = Modifier.fillMaxWidth())
                 TemperatureGraph(modifier = Modifier.fillMaxWidth())
             }
         }
@@ -100,7 +116,7 @@ private fun AppBar(elevation: Dp) {
                 Icon(Icons.Rounded.ArrowDropDown, contentDescription = null)
             }
         },
-        backgroundColor = MaterialTheme.colors.background,
+        backgroundColor = MaterialTheme.colors.skyTop(),
         actions = { Menu() },
         elevation = elevation
     )

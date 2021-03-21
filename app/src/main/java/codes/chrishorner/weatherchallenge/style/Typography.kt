@@ -73,7 +73,7 @@ val WeatherChallengeTypography = Typography(
 )
 
 val LargeTempTextStyle = WeatherChallengeTypography.h2.copy(
-    fontSize = 64.sp,
+    fontSize = 56.sp,
     fontFamily = RobotoSlab,
     fontWeight = FontWeight.Normal
 )
