@@ -15,6 +15,7 @@
  */
 package codes.chrishorner.weatherchallenge
 
+import androidx.annotation.DrawableRes
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.RowScope
@@ -92,6 +93,26 @@ fun ThickDivider(modifier: Modifier = Modifier) {
             .background(MaterialTheme.colors.onBackground.copy(alpha = 0.2f))
     )
 }
+
+@DrawableRes
+fun weatherIconRes(descriptor: String, night: Boolean = false): Int = when (descriptor) {
+    "sunny" -> R.drawable.ic_weather_sunny
+    "clear" -> if (night) R.drawable.ic_weather_clear_night else R.drawable.ic_weather_sunny
+    "mostly_sunny", "partly_cloudy" -> if (night) R.drawable.ic_weather_partly_cloudy_night else R.drawable.ic_weather_partly_cloudy
+    "cloudy" -> R.drawable.ic_weather_cloudy
+    "hazy" -> if (night) R.drawable.ic_weather_hazy_night else R.drawable.ic_weather_hazy
+    "light_rain", "light_shower" -> R.drawable.ic_weather_light_rain
+    "windy" -> R.drawable.ic_weather_windy
+    "fog" -> R.drawable.ic_weather_fog
+    "shower", "rain", "heavy_shower" -> R.drawable.ic_weather_rain
+    "dusty" -> R.drawable.ic_weather_dusty
+    "frost" -> R.drawable.ic_weather_frost
+    "snow" -> R.drawable.ic_weather_snow
+    "storm" -> R.drawable.ic_weather_storm
+    "cyclone" -> R.drawable.ic_weather_cyclone
+    else -> R.drawable.ic_weather_unknown
+}
+
 
 /**
  * A random number between start (inclusive) and end (exclusive).
