@@ -15,14 +15,16 @@ import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.StrokeCap
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import codes.chrishorner.weatherchallenge.style.SmallTempTextStyle
+import codes.chrishorner.weatherchallenge.style.WeatherChallengeTheme
 import kotlin.math.abs
 import kotlin.math.sqrt
 
 /**
- * The minimum number of degrees to show on the graph. This means that if the temperature
+ * The minimum range of degrees to show on the graph. This means that if the temperature
  * isn't changing much over time, (unheard of in Melbourne), then the line graph won't
  * fluctuate too aggressively for small changes.
  */
@@ -42,12 +44,17 @@ private data class TemperatureScale(val min: Int, val max: Int) {
 
 private val DummyEntries = listOf(
     GraphEntry(16, "16°", "8 AM", 0, ""),
-    GraphEntry(20, "20°", "11 AM", 10, "10%"),
+    GraphEntry(20, "20°", "11 AM", 0, ""),
     GraphEntry(22, "22°", "2 PM", 20, "20%"),
-    GraphEntry(21, "21°", "5 PM", 80, "80%"),
-    GraphEntry(18, "16°", "8 PM", 70, "70%"),
-    GraphEntry(15, "15°", "11 PM", 20, "20%"),
+    GraphEntry(21, "21°", "5 PM", 60, "60%"),
+    GraphEntry(18, "16°", "8 PM", 30, "30%"),
+    GraphEntry(15, "15°", "11 PM", 0, ""),
     GraphEntry(14, "14°", "2 AM", 0, ""),
+    GraphEntry(15, "15°", "5 AM", 0, ""),
+    GraphEntry(16, "16°", "8 AM", 0, ""),
+    GraphEntry(19, "19°", "11 AM", 0, ""),
+    GraphEntry(22, "22°", "2 PM", 0, ""),
+    GraphEntry(21, "21°", "5 PM", 0, ""),
 )
 
 @Composable
@@ -145,10 +152,8 @@ fun TemperatureGraph(modifier: Modifier = Modifier, entries: List<GraphEntry> = 
             // Determine which entries are currently on screen.
 
             val firstEntryIndex = listState.firstVisibleItemIndex
-            val lastEntryIndex =
-                (firstEntryIndex + (size.width / columnWidth.toPx()).toInt() + 1).coerceAtMost(
-                    entries.size - 1
-                )
+            val lastEntryIndex = (firstEntryIndex + (size.width / columnWidth.toPx()).toInt() + 1)
+                .coerceAtMost(entries.size - 1)
             var columnIndex = 0
 
             // Iterate through every currently visible entry.
@@ -221,4 +226,12 @@ private fun getTemperatureScale(items: List<GraphEntry>): TemperatureScale {
     }
 
     return TemperatureScale(min, max)
+}
+
+@Preview(showBackground = true, backgroundColor = 0xFFFFFFFF)
+@Composable
+private fun TemperatureGraphPreview() {
+    WeatherChallengeTheme {
+        TemperatureGraph()
+    }
 }

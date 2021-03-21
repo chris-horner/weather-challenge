@@ -43,7 +43,7 @@ data class UpcomingForecast(
 )
 
 private val DummyUpcomingForecasts = listOf(
-    UpcomingForecast("Tomorrow", 0, "", "partly_cloudy", "13°", "23°"),
+    UpcomingForecast("Tomorrow", 0, "", "partly_cloudy", "13°", "22°"),
     UpcomingForecast("Friday", 0, "", "windy", "11°", "20°"),
     UpcomingForecast("Saturday", 50, "50%", "shower", "10°", "18°"),
     UpcomingForecast("Sunday", 70, "70%", "storm", "9°", "18°"),
