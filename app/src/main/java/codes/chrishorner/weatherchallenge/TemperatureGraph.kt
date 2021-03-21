@@ -62,7 +62,7 @@ fun TemperatureGraph(modifier: Modifier = Modifier, entries: List<GraphEntry> = 
     val linePointGap = 12.dp // Visual space between dots and lines on the graph.
 
     val showChanceOfRain = entries.any { it.rainChancePercent > 0 }
-    val rainIconPainter = painterResource(R.drawable.ic_weather_rain)
+    val rainIconPainter = painterResource(R.drawable.ic_small_rain)
     val scale = getTemperatureScale(entries)
     val listState = rememberLazyListState()
     val foregroundColour = MaterialTheme.colors.onSurface
