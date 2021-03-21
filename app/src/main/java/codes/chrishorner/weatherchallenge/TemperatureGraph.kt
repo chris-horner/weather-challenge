@@ -1,21 +1,10 @@
 package codes.chrishorner.weatherchallenge
 
 import androidx.compose.foundation.Canvas
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxHeight
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.offset
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.rememberLazyListState
-import androidx.compose.material.Card
 import androidx.compose.material.ContentAlpha
 import androidx.compose.material.Icon
 import androidx.compose.material.MaterialTheme
@@ -63,14 +52,7 @@ private val DummyEntries = listOf(
 )
 
 @Composable
-fun TemperatureGraphCard(modifier: Modifier = Modifier, entries: List<GraphEntry> = DummyEntries) {
-    Card(modifier = modifier) {
-        Graph(entries)
-    }
-}
-
-@Composable
-private fun Graph(entries: List<GraphEntry>) {
+fun TemperatureGraph(modifier: Modifier = Modifier, entries: List<GraphEntry> = DummyEntries) {
     val totalGraphHeight = 208.dp
     val topSectionHeight: Dp // Top area that contains chance of rain (if applicable).
     val temperatureTextHeight: Dp
@@ -95,11 +77,7 @@ private fun Graph(entries: List<GraphEntry>) {
         lineGraphHeight = listGraphHeight - temperatureTextHeight
     }
 
-    Box(
-        modifier = Modifier
-            .fillMaxWidth()
-            .height(totalGraphHeight)
-    ) {
+    Box(modifier = modifier.requiredHeight(totalGraphHeight)) {
 
         // Start by drawing chance of rain, temperature, and time as LazyRow items.
 

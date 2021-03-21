@@ -13,4 +13,6 @@
     <string name="treeDesc">Image of a tree.</string>
     <string name="currentIconDesc">Icon for current weather conditions.</string>
     <string name="feelsLike">Feels like</string>
+    <string name="refresh">Refresh</string>
+    <string name="about">About</string>
 </resources>
