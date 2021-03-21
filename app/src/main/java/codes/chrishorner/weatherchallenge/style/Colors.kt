@@ -28,8 +28,8 @@ private val Orange = Color(0xffe47633)
 private val LightOrange = Color(0xfff2a363)
 private val DarkGrey = Color(0xff121212)
 
-private val DaySkyTop = Color(0xffE0F3FA)
-private val DaySkyBottom = Color(0xffc2f9ff)
+private val DaySkyTop = Color(0xffc2f9ff)
+private val DaySkyBottom = Color(0xffE0F3FA)
 private val NightSkyTop = Color(0xFFFF00FF)
 private val NightSkyBottom = Color(0xFFFF00FF)
 

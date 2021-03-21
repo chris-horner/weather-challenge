@@ -1,13 +1,16 @@
 package codes.chrishorner.weatherchallenge
 
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
-import androidx.compose.material.Icon
-import androidx.compose.material.Text
+import androidx.compose.foundation.layout.*
+import androidx.compose.material.*
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.unit.dp
+import codes.chrishorner.weatherchallenge.style.MediumTempTextStyle
+import codes.chrishorner.weatherchallenge.style.SmallTempTextStyle
 
 data class FormattedConditions(
     val feelsLikeTemperature: String,
@@ -30,20 +33,77 @@ fun Conditions(
     modifier: Modifier = Modifier,
     conditions: FormattedConditions = DummyConditions,
 ) {
-    Column(modifier = modifier) {
-        Row(horizontalArrangement = Arrangement.SpaceEvenly) {
-            Row {
-                Icon(painter = painterResource(R.drawable.ic_water), contentDescription = "")
-                Text(text = conditions.humidity)
+    Column(
+        modifier = modifier.padding(16.dp),
+        verticalArrangement = Arrangement.spacedBy(16.dp),
+    ) {
+
+        Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+            CompositionLocalProvider(LocalContentAlpha provides ContentAlpha.medium) {
+                Text(
+                    text = stringResource(R.string.feelsLike),
+                    style = MaterialTheme.typography.h5,
+                    modifier = Modifier.alignByBaseline()
+                )
             }
-            Row {
-                Icon(painter = painterResource(R.drawable.ic_weather_windy), contentDescription = "")
-                Text(text = conditions.windSpeed)
+            Text(
+                text = conditions.feelsLikeTemperature,
+                style = MediumTempTextStyle,
+                modifier = Modifier.alignByBaseline()
+            )
+        }
+
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.SpaceBetween
+        ) {
+            Row(
+                horizontalArrangement = Arrangement.spacedBy(4.dp),
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Icon(
+                    painter = painterResource(R.drawable.ic_water),
+                    tint = MaterialTheme.colors.onBackground.copy(alpha = 0.4f),
+                    contentDescription = ""
+                )
+                Text(
+                    text = conditions.humidity,
+                    style = SmallTempTextStyle,
+                )
             }
-            Row {
-                Icon(painter = painterResource(R.drawable.ic_weather_sunny_alert), contentDescription = "")
-                Text(text = conditions.uvWarningTimes)
+            Row(
+                horizontalArrangement = Arrangement.spacedBy(4.dp),
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Icon(
+                    painter = painterResource(R.drawable.ic_weather_windy),
+                    tint = MaterialTheme.colors.onBackground.copy(alpha = 0.4f),
+                    contentDescription = ""
+                )
+                Text(
+                    text = conditions.windSpeed,
+                    style = SmallTempTextStyle,
+                )
+            }
+            Row(
+                horizontalArrangement = Arrangement.spacedBy(4.dp),
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Icon(
+                    painter = painterResource(R.drawable.ic_weather_sunny_alert),
+                    tint = MaterialTheme.colors.onBackground.copy(alpha = 0.4f),
+                    contentDescription = ""
+                )
+                Text(
+                    text = conditions.uvWarningTimes,
+                    style = SmallTempTextStyle,
+                )
             }
         }
+
+        Text(
+            text = conditions.description,
+            style = MaterialTheme.typography.body1
+        )
     }
 }
