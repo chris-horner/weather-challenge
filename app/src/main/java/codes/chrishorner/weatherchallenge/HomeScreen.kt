@@ -16,6 +16,7 @@
 package codes.chrishorner.weatherchallenge
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -36,6 +37,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import dev.chrisbanes.accompanist.insets.systemBarsPadding
 
 @Composable
 fun HomeScreen() {
@@ -59,7 +61,6 @@ private fun HomeUi() {
             }
         ) {
             Box {
-
                 Image(
                     painter = painterResource(R.drawable.tree),
                     contentDescription = stringResource(R.string.treeDesc),
@@ -75,15 +76,18 @@ private fun HomeUi() {
                         .fillMaxWidth()
                         .height(280.dp)
                 )
-
-
             }
 
-            Column(modifier = Modifier.verticalScroll(rememberScrollState())) {
-                Spacer(modifier = Modifier.height(196.dp))
-                Box(modifier = Modifier.padding(16.dp)) {
-                    ConditionsCard(modifier = Modifier.fillMaxWidth())
-                }
+            Column(
+                modifier = Modifier
+                    .verticalScroll(rememberScrollState())
+                    .systemBarsPadding()
+                    .padding(horizontal = 16.dp, vertical = 8.dp),
+                verticalArrangement = Arrangement.spacedBy(16.dp)
+            ) {
+                Spacer(modifier = Modifier.height(188.dp))
+                ConditionsCard(modifier = Modifier.fillMaxWidth())
+                TemperatureGraphCard(modifier = Modifier.fillMaxWidth())
             }
         }
     }
