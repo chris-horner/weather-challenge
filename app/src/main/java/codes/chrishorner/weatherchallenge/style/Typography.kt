@@ -68,7 +68,7 @@ val WeatherChallengeTypography = Typography(
         fontWeight = FontWeight.Normal
     ),
     overline = TextStyle(
-        fontSize = 15.sp
+        fontSize = 14.sp
     )
 )
 

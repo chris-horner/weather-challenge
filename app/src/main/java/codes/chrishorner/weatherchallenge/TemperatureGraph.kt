@@ -95,7 +95,7 @@ fun TemperatureGraph(modifier: Modifier = Modifier, entries: List<GraphEntry> = 
                                     .height(topSectionHeight)
                                     .padding(bottom = 16.dp),
                                 verticalAlignment = Alignment.Bottom,
-                                horizontalArrangement = Arrangement.spacedBy(8.dp)
+                                horizontalArrangement = Arrangement.spacedBy(4.dp)
                             ) {
                                 Icon(
                                     painter = rainIconPainter,
