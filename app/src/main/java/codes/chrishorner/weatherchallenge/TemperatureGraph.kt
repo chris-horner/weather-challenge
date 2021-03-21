@@ -5,7 +5,6 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.rememberLazyListState
-import androidx.compose.material.ContentAlpha
 import androidx.compose.material.Icon
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
@@ -67,7 +66,7 @@ fun TemperatureGraph(modifier: Modifier = Modifier, entries: List<GraphEntry> = 
     val scale = getTemperatureScale(entries)
     val listState = rememberLazyListState()
     val foregroundColour = MaterialTheme.colors.onSurface
-    val fadedColour = MaterialTheme.colors.onSurface.copy(alpha = ContentAlpha.medium)
+    val fadedColour = MaterialTheme.colors.onSurface.copy(alpha = 0.2f)
 
     with(LocalDensity.current) {
         topSectionHeight = if (showChanceOfRain) 40.dp else 0.dp
@@ -101,7 +100,7 @@ fun TemperatureGraph(modifier: Modifier = Modifier, entries: List<GraphEntry> = 
                                 Icon(
                                     painter = rainIconPainter,
                                     contentDescription = "", // Not important for accessibility.
-                                    tint = fadedColour
+                                    tint = fadedColour,
                                 )
                                 Text(
                                     entry.formattedRainChance,
