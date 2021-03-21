@@ -23,6 +23,12 @@ private val Inter = FontFamily(
 
 val WeatherChallengeTypography = Typography(
     defaultFontFamily = Inter,
+    body1 = TextStyle(
+        fontSize = 16.sp,
+        letterSpacing = 0.5.sp,
+        lineHeight = 24.sp,
+        fontWeight = FontWeight.Normal,
+    ),
     h1 = TextStyle(
         fontSize = 96.sp,
         fontFamily = ZillaSlab,
@@ -58,7 +64,7 @@ val WeatherChallengeTypography = Typography(
         fontWeight = FontWeight.Medium
     ),
     subtitle1 = TextStyle(
-        fontSize = 18.sp,
+        fontSize = 19.sp,
         letterSpacing = 0.2.sp,
         fontWeight = FontWeight.Normal
     ),

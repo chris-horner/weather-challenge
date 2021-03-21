@@ -61,7 +61,9 @@ fun UpcomingForecasts(
         for (forecast in forecasts) {
             Row(
                 verticalAlignment = Alignment.CenterVertically,
-                modifier = Modifier.padding(vertical = 8.dp)
+                modifier = Modifier
+                    .padding(vertical = 8.dp)
+                    .height(40.dp)
             ) {
 
                 Text(
