@@ -29,6 +29,7 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -60,22 +61,24 @@ private fun HomeUi() {
                     .navigationBarsPadding()
                     .padding(bottom = 8.dp),
             ) {
-                Box(
-                    modifier = Modifier.background(
-                        Brush.verticalGradient(
-                            0f to MaterialTheme.colors.skyTop(),
-                            1f to MaterialTheme.colors.skyBottom()
-                        )
-                    )
-                ) {
-                    Image(
-                        painter = painterResource(R.drawable.tree),
-                        contentDescription = stringResource(R.string.treeDesc),
-                        alignment = Alignment.CenterStart,
-                        contentScale = ContentScale.Fit,
+                Box(modifier = Modifier.height(272.dp)) {
+                    Box(
                         modifier = Modifier
+                            .background(
+                                Brush.verticalGradient(
+                                    0f to MaterialTheme.colors.skyTop(),
+                                    1f to Color.White
+                                )
+                            )
                             .fillMaxWidth()
                             .height(256.dp)
+                    )
+                    Image(
+                        painter = painterResource(R.drawable.tree_foreground),
+                        contentDescription = stringResource(R.string.treeDesc),
+                        contentScale = ContentScale.Crop,
+                        alignment = Alignment.BottomStart,
+                        modifier = Modifier.fillMaxHeight()
                     )
 
                     FloatingLeaves(
@@ -90,24 +93,33 @@ private fun HomeUi() {
                             .padding(horizontal = 16.dp)
                     )
                 }
-                Conditions(modifier = Modifier.fillMaxWidth())
 
-                ThickDivider(
+                Conditions(
                     modifier = Modifier
-                        .padding(horizontal = 16.dp)
                         .fillMaxWidth()
+                        .padding(horizontal = 16.dp)
+                )
+
+                Spacer(modifier = Modifier.height(8.dp))
+
+                Image(
+                    painter = painterResource(R.drawable.graph_top),
+                    contentDescription = null,
+                    contentScale = ContentScale.FillWidth,
+                    modifier = Modifier.fillMaxWidth()
                 )
 
                 TemperatureGraph(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .padding(vertical = 16.dp)
+                        .background(MaterialTheme.colors.skyBottom())
                 )
 
-                ThickDivider(
-                    modifier = Modifier
-                        .padding(horizontal = 16.dp)
-                        .fillMaxWidth()
+                Image(
+                    painter = painterResource(R.drawable.graph_bottom),
+                    contentDescription = null,
+                    contentScale = ContentScale.FillWidth,
+                    modifier = Modifier.fillMaxWidth(),
                 )
 
                 UpcomingForecasts(
@@ -128,7 +140,7 @@ private fun AppBar(elevation: Dp) {
                 Column {
                     Text(
                         text = "Melbourne",
-                        style = MaterialTheme.typography.h6,
+                        style = MaterialTheme.typography.h5,
                     )
                     CompositionLocalProvider(LocalContentAlpha provides ContentAlpha.medium) {
                         Text(

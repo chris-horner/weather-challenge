@@ -28,8 +28,10 @@ private val Orange = Color(0xffe47633)
 private val LightOrange = Color(0xfff2a363)
 private val DarkGrey = Color(0xff121212)
 
-private val DaySkyTop = Color(0xffc2f9ff)
-private val DaySkyBottom = Color(0xffE0F3FA)
+private val DeepRed = Color(0xFFD13D3D)
+
+private val DaySkyTop = Color(0xffFFDAA8)
+private val DaySkyBottom = Color(0xffFFF4E1)
 private val NightSkyTop = Color(0xFFFF00FF)
 private val NightSkyBottom = Color(0xFFFF00FF)
 
@@ -37,7 +39,7 @@ val LightColors = lightColors(
     primary = Aqua,
     primaryVariant = DarkAqua,
     onPrimary = Color.Black,
-    secondary = Orange,
+    secondary = DeepRed,
     secondaryVariant = LightOrange,
     onSecondary = Color.Black,
     surface = Color.White,

@@ -93,15 +93,17 @@ private class LeavesSimulation {
                 drawableRes = leafDrawableIds.random()
                 x = random(0f, 72f).dp
                 y = random(0f, 100f).dp
-                val scale = random(0.5f, 1f)
+                val scale = random(0.3f, 0.6f)
                 this.width = 32.dp * scale
                 this.height = 18.dp * scale
-                xSpeed = random(96f, 192f).dp
-                ySpeed = random(48f, 96f).dp
+                xSpeed = random(90f, 136f).dp
+                ySpeed = random(48f, 80f).dp
                 rotation = random(0f, 360f)
                 rotationSpeed = random(0.5f, 180f) * if (Random.nextBoolean()) 1 else -1
                 period = random(0.05f, 0.6f)
+                //period = random(0.1f, 0.8f)
                 amplitude = random(0.003f, 0.05f)
+                //amplitude = random(0.009f, 0.07f)
                 alpha = 0f
             }
 

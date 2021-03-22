@@ -78,7 +78,7 @@ fun UpcomingForecasts(
                     CompositionLocalProvider(LocalContentAlpha provides ContentAlpha.medium) {
                         Text(
                             text = forecast.formattedChanceOfRain,
-                            style = MaterialTheme.typography.subtitle2,
+                            style = MaterialTheme.typography.overline,
                             modifier = Modifier.padding(end = 8.dp)
                         )
                     }

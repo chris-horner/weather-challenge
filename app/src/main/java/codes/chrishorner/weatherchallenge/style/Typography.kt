@@ -8,8 +8,10 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
 import codes.chrishorner.weatherchallenge.R
 
-private val ZillaSlab = FontFamily(
-    Font(R.font.zilla_slab_medium, weight = FontWeight.Medium)
+private val AlegreyaSansSc = FontFamily(
+    Font(R.font.alegreya_sans_sc_regular),
+    Font(R.font.alegreya_sans_sc_medium, weight = FontWeight.Medium),
+    Font(R.font.alegreya_sans_sc_bold, weight = FontWeight.Bold)
 )
 
 private val RobotoSlab = FontFamily(
@@ -18,7 +20,7 @@ private val RobotoSlab = FontFamily(
 )
 
 private val Inter = FontFamily(
-    Font(R.font.inter_regular)
+    Font(R.font.inter_regular),
 )
 
 val WeatherChallengeTypography = Typography(
@@ -31,42 +33,43 @@ val WeatherChallengeTypography = Typography(
     ),
     h1 = TextStyle(
         fontSize = 96.sp,
-        fontFamily = ZillaSlab,
+        fontFamily = AlegreyaSansSc,
         fontWeight = FontWeight.Medium
     ),
     h2 = TextStyle(
         fontSize = 60.sp,
         letterSpacing = (-0.5).sp,
-        fontFamily = ZillaSlab,
+        fontFamily = AlegreyaSansSc,
         fontWeight = FontWeight.Medium
     ),
     h3 = TextStyle(
         fontSize = 48.sp,
-        fontFamily = ZillaSlab,
+        fontFamily = AlegreyaSansSc,
         fontWeight = FontWeight.Medium
     ),
     h4 = TextStyle(
         fontSize = 34.sp,
         letterSpacing = 0.25.sp,
-        fontFamily = ZillaSlab,
+        fontFamily = AlegreyaSansSc,
         fontWeight = FontWeight.Medium
     ),
     h5 = TextStyle(
         fontSize = 24.sp,
         letterSpacing = 0.2.sp,
-        fontFamily = ZillaSlab,
-        fontWeight = FontWeight.Medium
+        fontFamily = AlegreyaSansSc,
+        fontWeight = FontWeight.Bold
     ),
     h6 = TextStyle(
-        fontSize = 20.sp,
-        letterSpacing = 0.15.sp,
-        fontFamily = ZillaSlab,
+        fontSize = 22.sp,
+        letterSpacing = 0.2.sp,
+        fontFamily = AlegreyaSansSc,
         fontWeight = FontWeight.Medium
     ),
     subtitle1 = TextStyle(
-        fontSize = 19.sp,
+        fontSize = 20.sp,
         letterSpacing = 0.2.sp,
-        fontWeight = FontWeight.Normal
+        fontFamily = AlegreyaSansSc,
+        fontWeight = FontWeight.Medium
     ),
     subtitle2 = TextStyle(
         fontSize = 14.sp,
@@ -78,18 +81,19 @@ val WeatherChallengeTypography = Typography(
     )
 )
 
-val LargeTempTextStyle = WeatherChallengeTypography.h2.copy(
+val LargeTempTextStyle = TextStyle(
     fontSize = 56.sp,
     fontFamily = RobotoSlab,
     fontWeight = FontWeight.Normal
 )
 
-val MediumTempTextStyle = WeatherChallengeTypography.h5.copy(
+val MediumTempTextStyle = TextStyle(
+    fontSize = 22.sp,
     fontFamily = RobotoSlab,
     fontWeight = FontWeight.Medium
 )
 
-val SmallTempTextStyle = WeatherChallengeTypography.body1.copy(
+val SmallTempTextStyle = TextStyle(
     fontSize = 18.sp,
     fontFamily = RobotoSlab,
     fontWeight = FontWeight.Medium

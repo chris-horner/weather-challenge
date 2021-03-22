@@ -1,9 +1,13 @@
 package codes.chrishorner.weatherchallenge
 
-import androidx.compose.foundation.layout.*
-import androidx.compose.material.*
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.material.Icon
+import androidx.compose.material.MaterialTheme
+import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
@@ -36,18 +40,16 @@ fun Conditions(
     conditions: FormattedConditions = DummyConditions,
 ) {
     Column(
-        modifier = modifier.padding(16.dp),
+        modifier = modifier,
         verticalArrangement = Arrangement.spacedBy(16.dp),
     ) {
 
         Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-            CompositionLocalProvider(LocalContentAlpha provides ContentAlpha.medium) {
-                Text(
-                    text = stringResource(R.string.feelsLike),
-                    style = MaterialTheme.typography.h5,
-                    modifier = Modifier.alignByBaseline()
-                )
-            }
+            Text(
+                text = stringResource(R.string.feelsLike),
+                style = MaterialTheme.typography.h6,
+                modifier = Modifier.alignByBaseline()
+            )
             Text(
                 text = conditions.feelsLikeTemperature,
                 style = MediumTempTextStyle,
@@ -65,7 +67,7 @@ fun Conditions(
             ) {
                 Icon(
                     painter = painterResource(R.drawable.ic_water),
-                    tint = MaterialTheme.colors.onBackground.copy(alpha = 0.4f),
+                    tint = MaterialTheme.colors.secondary,
                     contentDescription = ""
                 )
                 Text(
@@ -79,7 +81,7 @@ fun Conditions(
             ) {
                 Icon(
                     painter = painterResource(R.drawable.ic_weather_windy),
-                    tint = MaterialTheme.colors.onBackground.copy(alpha = 0.4f),
+                    tint = MaterialTheme.colors.secondary,
                     contentDescription = ""
                 )
                 Text(
@@ -93,7 +95,7 @@ fun Conditions(
             ) {
                 Icon(
                     painter = painterResource(R.drawable.ic_weather_sunny_alert),
-                    tint = MaterialTheme.colors.onBackground.copy(alpha = 0.4f),
+                    tint = MaterialTheme.colors.secondary,
                     contentDescription = ""
                 )
                 Text(
