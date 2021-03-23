@@ -28,6 +28,7 @@ import androidx.compose.material.icons.rounded.ArrowDropDown
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clipToBounds
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
@@ -73,6 +74,7 @@ private fun HomeUi() {
                             .fillMaxWidth()
                             .height(256.dp)
                     )
+
                     Image(
                         painter = painterResource(R.drawable.tree_foreground),
                         contentDescription = stringResource(R.string.treeDesc),
@@ -83,8 +85,8 @@ private fun HomeUi() {
 
                     FloatingLeaves(
                         modifier = Modifier
-                            .fillMaxWidth()
-                            .height(256.dp)
+                            .fillMaxSize()
+                            .clipToBounds()
                     )
 
                     CurrentTemperature(
