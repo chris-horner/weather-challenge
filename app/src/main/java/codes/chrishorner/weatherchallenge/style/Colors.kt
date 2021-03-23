@@ -18,47 +18,39 @@ package codes.chrishorner.weatherchallenge.style
 import androidx.compose.material.Colors
 import androidx.compose.material.darkColors
 import androidx.compose.material.lightColors
-import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 
-private val Aqua = Color(0xff34d9b8)
-private val DarkAqua = Color(0xff00a183)
-private val VeryLightAqua = Color(0xffedfdf8)
-private val Orange = Color(0xffe47633)
-private val LightOrange = Color(0xfff2a363)
-private val DarkGrey = Color(0xff121212)
-
-private val DeepRed = Color(0xFFD13D3D)
-
-private val DaySkyTop = Color(0xffFFDAA8)
-private val DaySkyBottom = Color(0xffFFF4E1)
-private val NightSkyTop = Color(0xFFFF00FF)
-private val NightSkyBottom = Color(0xFFFF00FF)
+private val AutumnRed = Color(0xFFD13D3D)
+private val DeepRed = Color(0xFF470000)
+private val DarkBrown = Color(0xFF250909)
+private val Orange = Color(0xFFFFDAA8)
+private val LightOrange = Color(0xFFFFF4E1)
+private val DarkGrey = Color(0xFF121212)
+private val Grey = Color(0xFF212121)
 
 val LightColors = lightColors(
-    primary = Aqua,
-    primaryVariant = DarkAqua,
-    onPrimary = Color.Black,
-    secondary = DeepRed,
-    secondaryVariant = LightOrange,
-    onSecondary = Color.Black,
+    primary = Orange,
+    primaryVariant = LightOrange,
+    onPrimary = DarkBrown,
+    secondary = AutumnRed,
+    secondaryVariant = DeepRed,
+    onSecondary = DarkBrown,
     surface = Color.White,
-    onSurface = Color.Black,
-    onBackground = Color.Black
+    onSurface = DarkBrown,
+    onBackground = DarkBrown
 )
 
 val DarkColors = darkColors(
-    primary = Aqua,
-    primaryVariant = DarkAqua,
+    primary = AutumnRed,
+    primaryVariant = Grey,
     onPrimary = Color.Black,
-    secondary = LightOrange,
+    secondary = Orange,
+    secondaryVariant = LightOrange,
     onSecondary = Color.Black,
     surface = DarkGrey,
     onSurface = Color.White,
 )
 
-@Composable
-fun Colors.skyTop(): Color = if (isLight) DaySkyTop else NightSkyTop
+val Colors.skyTop: Color get() = if (isLight) primary else surface
 
-@Composable
-fun Colors.skyBottom(): Color = if (isLight) DaySkyBottom else NightSkyBottom
+val Colors.skyBottom: Color get() = if (isLight) background else Grey

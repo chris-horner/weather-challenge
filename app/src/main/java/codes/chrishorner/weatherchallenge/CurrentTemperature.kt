@@ -82,7 +82,7 @@ fun CurrentTemperature(
                     .width(28.dp)
                     .height(4.dp)
                     .clip(RoundedCornerShape(2.dp))
-                    .background(MaterialTheme.colors.onSurface.copy(alpha = 0.2f))
+                    .background(MaterialTheme.colors.secondaryVariant.copy(alpha = 0.2f))
             )
             Text(
                 text = temperatures.high,

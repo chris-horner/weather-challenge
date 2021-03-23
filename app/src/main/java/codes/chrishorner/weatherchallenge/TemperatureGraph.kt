@@ -72,8 +72,9 @@ fun TemperatureGraph(modifier: Modifier = Modifier, entries: List<GraphEntry> = 
     val rainIconPainter = painterResource(R.drawable.ic_small_rain)
     val scale = getTemperatureScale(entries)
     val listState = rememberLazyListState()
-    val foregroundColour = MaterialTheme.colors.onSurface
-    val fadedColour = MaterialTheme.colors.onSurface.copy(alpha = 0.2f)
+    val dotColor = MaterialTheme.colors.onSurface
+    val iconColor = MaterialTheme.colors.onSurface.copy(alpha = 0.2f)
+    val lineColor = MaterialTheme.colors.secondaryVariant.copy(alpha = 0.2f)
 
     with(LocalDensity.current) {
         topSectionHeight = if (showChanceOfRain) 40.dp else 0.dp
@@ -107,7 +108,7 @@ fun TemperatureGraph(modifier: Modifier = Modifier, entries: List<GraphEntry> = 
                                 Icon(
                                     painter = rainIconPainter,
                                     contentDescription = "", // Not important for accessibility.
-                                    tint = fadedColour,
+                                    tint = iconColor,
                                 )
                                 Text(
                                     entry.formattedRainChance,
@@ -169,7 +170,7 @@ fun TemperatureGraph(modifier: Modifier = Modifier, entries: List<GraphEntry> = 
                 val y = entry.getGraphY(lineGraphHeight, scale).toPx()
 
                 drawCircle(
-                    color = foregroundColour,
+                    color = dotColor,
                     radius = 3.dp.toPx(),
                     center = Offset(x, y)
                 )
@@ -194,7 +195,7 @@ fun TemperatureGraph(modifier: Modifier = Modifier, entries: List<GraphEntry> = 
                         end = Offset(x = x - dx, y = y - dy)
                     }
 
-                    drawLine(fadedColour, start, end, strokeWidth = 3.dp.toPx(), StrokeCap.Round)
+                    drawLine(lineColor, start, end, strokeWidth = 3.dp.toPx(), StrokeCap.Round)
                 }
 
                 columnIndex++

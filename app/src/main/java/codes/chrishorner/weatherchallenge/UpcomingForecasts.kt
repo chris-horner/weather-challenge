@@ -104,7 +104,7 @@ fun UpcomingForecasts(
                         .width(24.dp)
                         .height(4.dp)
                         .clip(RoundedCornerShape(2.dp))
-                        .background(MaterialTheme.colors.onBackground.copy(alpha = 0.2f))
+                        .background(MaterialTheme.colors.secondaryVariant.copy(alpha = 0.2f))
                 )
 
                 Text(

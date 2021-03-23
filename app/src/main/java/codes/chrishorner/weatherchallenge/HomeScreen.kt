@@ -30,7 +30,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clipToBounds
 import androidx.compose.ui.graphics.Brush
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -79,12 +78,14 @@ private fun HomeUi(state: HomeUiState = DummyUiState) {
                     .padding(bottom = 8.dp),
             ) {
                 Box(modifier = Modifier.height(272.dp)) {
+
+                    // Render a gradient for the sky behind the tree image.
                     Box(
                         modifier = Modifier
                             .background(
                                 Brush.verticalGradient(
-                                    0f to MaterialTheme.colors.skyTop(),
-                                    1f to Color.White
+                                    0f to MaterialTheme.colors.skyTop,
+                                    1f to MaterialTheme.colors.skyBottom
                                 )
                             )
                             .fillMaxWidth()
@@ -124,20 +125,24 @@ private fun HomeUi(state: HomeUiState = DummyUiState) {
                     painter = painterResource(R.drawable.graph_top),
                     contentDescription = null,
                     contentScale = ContentScale.FillWidth,
-                    modifier = Modifier.fillMaxWidth()
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .offset(y = 2.dp)
                 )
 
                 TemperatureGraph(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .background(MaterialTheme.colors.skyBottom())
+                        .background(MaterialTheme.colors.primaryVariant)
                 )
 
                 Image(
                     painter = painterResource(R.drawable.graph_bottom),
                     contentDescription = null,
                     contentScale = ContentScale.FillWidth,
-                    modifier = Modifier.fillMaxWidth(),
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .offset(y = (-2).dp),
                 )
 
                 UpcomingForecasts(
@@ -170,7 +175,6 @@ private fun AppBar(title: String, subtitle: String, elevation: Dp) {
                 Icon(Icons.Rounded.ArrowDropDown, contentDescription = null)
             }
         },
-        backgroundColor = MaterialTheme.colors.skyTop(),
         actions = { Menu() },
         elevation = elevation
     )
