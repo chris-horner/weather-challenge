@@ -17,8 +17,16 @@ package codes.chrishorner.weatherchallenge
 
 import androidx.annotation.DrawableRes
 import androidx.compose.foundation.layout.RowScope
-import androidx.compose.material.*
-import androidx.compose.runtime.*
+import androidx.compose.material.MaterialTheme
+import androidx.compose.material.Surface
+import androidx.compose.material.TopAppBar
+import androidx.compose.material.contentColorFor
+import androidx.compose.material.primarySurface
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.State
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.withFrameMillis
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.Dp
@@ -97,7 +105,6 @@ fun weatherIconRes(descriptor: String, night: Boolean = false): Int = when (desc
     "cyclone" -> R.drawable.ic_weather_cyclone
     else -> R.drawable.ic_weather_unknown
 }
-
 
 /**
  * A random number between start (inclusive) and end (exclusive).
