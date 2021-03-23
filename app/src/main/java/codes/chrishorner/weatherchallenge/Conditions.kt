@@ -61,13 +61,15 @@ fun Conditions(
             modifier = Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.SpaceBetween
         ) {
+            val iconTint = MaterialTheme.colors.onBackground.copy(alpha = 0.6f)
+
             Row(
                 horizontalArrangement = Arrangement.spacedBy(4.dp),
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 Icon(
                     painter = painterResource(R.drawable.ic_water),
-                    tint = MaterialTheme.colors.secondary,
+                    tint = iconTint,
                     contentDescription = ""
                 )
                 Text(
@@ -81,7 +83,7 @@ fun Conditions(
             ) {
                 Icon(
                     painter = painterResource(R.drawable.ic_weather_windy),
-                    tint = MaterialTheme.colors.secondary,
+                    tint = iconTint,
                     contentDescription = ""
                 )
                 Text(
@@ -95,7 +97,7 @@ fun Conditions(
             ) {
                 Icon(
                     painter = painterResource(R.drawable.ic_weather_sunny_alert),
-                    tint = MaterialTheme.colors.secondary,
+                    tint = iconTint,
                     contentDescription = ""
                 )
                 Text(
