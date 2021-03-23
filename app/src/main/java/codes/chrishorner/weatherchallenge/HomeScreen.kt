@@ -144,6 +144,7 @@ private fun HomeUi(state: HomeUiState = DummyUiState) {
 
                 Spacer(modifier = Modifier.height(8.dp))
 
+                // Surround the temperature graph with some squiggly shapes.
                 Image(
                     painter = painterResource(R.drawable.graph_top),
                     contentDescription = null,
@@ -152,13 +153,11 @@ private fun HomeUi(state: HomeUiState = DummyUiState) {
                         .fillMaxWidth()
                         .offset(y = 2.dp)
                 )
-
                 TemperatureGraph(
                     modifier = Modifier
                         .fillMaxWidth()
                         .background(MaterialTheme.colors.primaryVariant)
                 )
-
                 Image(
                     painter = painterResource(R.drawable.graph_bottom),
                     contentDescription = null,

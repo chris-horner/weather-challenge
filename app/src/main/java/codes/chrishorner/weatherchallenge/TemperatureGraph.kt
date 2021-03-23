@@ -81,6 +81,9 @@ private val DummyEntries = listOf(
     GraphEntry(19, "19°", "11 AM", 0, ""),
     GraphEntry(22, "22°", "2 PM", 0, ""),
     GraphEntry(21, "21°", "5 PM", 0, ""),
+    GraphEntry(17, "17°", "8 PM", 0, ""),
+    GraphEntry(13, "13°", "11 PM", 0, ""),
+    GraphEntry(11, "11°", "2 AM", 0, ""),
 )
 
 @Composable

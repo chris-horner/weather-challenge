@@ -85,7 +85,7 @@ fun Conditions(
                 Icon(
                     painter = painterResource(R.drawable.ic_water),
                     tint = iconTint,
-                    contentDescription = ""
+                    contentDescription = null
                 )
                 Text(
                     text = conditions.humidity,
@@ -99,7 +99,7 @@ fun Conditions(
                 Icon(
                     painter = painterResource(R.drawable.ic_weather_windy),
                     tint = iconTint,
-                    contentDescription = ""
+                    contentDescription = null
                 )
                 Text(
                     text = conditions.windSpeed,
@@ -113,7 +113,7 @@ fun Conditions(
                 Icon(
                     painter = painterResource(R.drawable.ic_weather_sunny_alert),
                     tint = iconTint,
-                    contentDescription = ""
+                    contentDescription = null
                 )
                 Text(
                     text = conditions.uvWarningTimes,

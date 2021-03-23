@@ -38,7 +38,7 @@ import kotlin.random.Random
  * A wrapper around [TopAppBar] which uses [Modifier.statusBarsPadding] to shift the app bar's
  * contents down, but still draws the background behind the status bar too.
  *
- * Thanks Chris: https://github.com/chrisbanes/accompanist/blob/main/sample/src/main/java/dev/chrisbanes/accompanist/sample/insets/EdgeToEdgeLazyColumn.kt
+ * Thanks Chris: https://github.com/google/accompanist/blob/main/sample/src/main/java/com/google/accompanist/sample/insets/EdgeToEdgeLazyColumn.kt
  */
 @Composable
 fun InsetAwareTopAppBar(

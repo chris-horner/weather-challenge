@@ -114,6 +114,7 @@ private class LeavesSimulation {
         worldWidth = width
         worldHeight = height
 
+        // Spawn a new leaf if appropriate.
         if (time >= nextSpawnTime && pool.isNotEmpty()) {
             nextSpawnTime = time + MIN_SPAWN_THRESHOLD_MS + Random.nextLong(SPAWN_VARIANCE)
 
@@ -137,6 +138,8 @@ private class LeavesSimulation {
 
         val deltaSeconds = (time - lastUpdateTime) / 1000f
 
+        // Update the properties of all active leaves, and potentially add them back to the pool
+        // if they've left the world's bounds.
         for (index in activeLeaves.indices.reversed()) {
             with(activeLeaves[index]) {
                 rotation += rotationSpeed * deltaSeconds
