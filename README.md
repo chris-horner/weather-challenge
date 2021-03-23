@@ -1,4 +1,4 @@
-# Put title of your app here
+# Weather Scene
 
 <!--- Replace <OWNER> with your Github Username and <REPOSITORY> with the name of your repository. -->
 <!--- You can find both of these in the url bar when you open your repository in github. -->
@@ -12,9 +12,9 @@ A weather app that aims to be visually interesting when launched - showing the u
 ## :bulb: Motivation and Context
 <!--- Optionally point readers to interesting parts of your submission. -->
 <!--- What are you especially proud of? -->
-I have an existing open source Android weather app called [Socket Weather](https://github.com/chris-horner/SocketWeather) that informed much of the design of this prototype. That app is quite minimalist, so I used this exercise as an opportunity to make something with a little more flair.
+I have an existing open source Android weather app called [Socket Weather](https://github.com/chris-horner/SocketWeather) that informed much of the design of this prototype. That app is quite minimalist, so I used this exercise as an opportunity to make something with a little more flair. (As well as learn Compose!)
 
-At the time I made this, the city I live in (Melbourne) has started to turn some nice autumn colours. This made me wonder if I could display this in the app somehow, and remind people the southern hemisphere exists. I'm especially proud of how the leaves turned out, as well as the implementation of the temperature graph.
+At the time I made this, the city I live in (Melbourne) has started to turn some nice autumn colours. This made me wonder if I could display the conditions in the app somehow, and remind people that we have the opposite season in the southern hemisphere! I'm especially proud of how the blowing leaves turned out, as well as the implementation of the temperature graph.
 
 ## :camera_flash: Screenshots
 <!-- You can add more screenshots here if you like -->
