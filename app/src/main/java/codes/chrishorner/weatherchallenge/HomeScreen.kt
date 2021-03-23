@@ -46,15 +46,31 @@ fun HomeScreen() {
     HomeUi()
 }
 
+private data class HomeUiState(
+    val locationName: String,
+    val lastUpdated: String,
+)
+
+private val DummyUiState = HomeUiState(
+    locationName = "Melbourne",
+    lastUpdated = "Updated 1 minute ago",
+)
+
 @Composable
-private fun HomeUi() {
+private fun HomeUi(state: HomeUiState = DummyUiState) {
 
     val scrollState = rememberScrollState()
     val toolbarElevation = animateDpAsState(targetValue = if (scrollState.value > 0) 4.dp else 0.dp)
 
     Surface(color = MaterialTheme.colors.background, modifier = Modifier.fillMaxSize()) {
         Scaffold(
-            topBar = { AppBar(toolbarElevation.value) },
+            topBar = {
+                AppBar(
+                    title = state.locationName,
+                    subtitle = state.lastUpdated,
+                    elevation = toolbarElevation.value
+                )
+            },
         ) {
             Column(
                 modifier = Modifier
@@ -135,18 +151,18 @@ private fun HomeUi() {
 }
 
 @Composable
-private fun AppBar(elevation: Dp) {
+private fun AppBar(title: String, subtitle: String, elevation: Dp) {
     InsetAwareTopAppBar(
         title = {
             Row(verticalAlignment = Alignment.CenterVertically) {
                 Column {
                     Text(
-                        text = "Melbourne",
+                        text = title,
                         style = MaterialTheme.typography.h5,
                     )
                     CompositionLocalProvider(LocalContentAlpha provides ContentAlpha.medium) {
                         Text(
-                            text = "Updated 1 minute ago",
+                            text = subtitle,
                             style = MaterialTheme.typography.caption
                         )
                     }
